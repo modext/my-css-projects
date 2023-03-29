@@ -1,0 +1,142 @@
+// Given a sequence of integers as an array,
+function solution(sequence) {
+    var count = 0;
+    for(var i=0; i<sequence.length;i++){
+        if (sequence[i] >= sequence[i+1]){
+            count++;
+            if(sequence[i] >= sequence[i+2] && sequence[i-1]>=sequence[i+1]){
+                return false;
+            }
+        } 
+    }return count<=1;
+}
+
+// Given a year, return Century
+function solution(year) {
+    if (year<= 0)
+        document.write('invalid year')
+    else 
+     return(Math.ceil(year/100))
+     
+    }
+// Check if it is a Plaindrome
+function solution(inputString) {
+    return (inputString.split("").reverse().join("") === inputString)
+    console.log(inputString.split("").reverse().join("") === inputString)
+     
+}
+//  Givenan array of integers, find the pair of adjacent elements that has the largest product and return that product
+function solution(inputArray) {
+    let maxProd = inputArray[0] * inputArray[1];
+    for (let i = 1; i<inputArray.length; i++) {
+        product = inputArray[i] * inputArray[i+1];
+    if (product > maxProd) 
+    maxProd = product;
+    }
+    
+    return maxProd;
+}
+console.log(solution([3, 6, -2, -5, 7, 3]));
+
+// n-interesting Polgon
+
+function solution(n) {
+    area = 1
+    for (let i=1; i <= n; i++)
+       area += (i*4)-4
+   return area   
+}
+console.log(solution(6))
+
+// Help figure out the minimum number of additional statues needed
+function solution(statues) {
+    return Math.max(...statues)- Math.min(...statues) - statues.length + 1
+   }
+   
+   console.log(solution([6, 2, 3, 8]))
+
+// Matrix return total sum of rooms
+function solution(matrix) {
+    counter = 0
+    for (let i = 0; i < matrix[0].length; i++ ){
+        for (let j = 0; j< matrix.length; j++){
+            if (matrix[j][i] === 0){
+                break;
+               
+            }
+            counter += + matrix[j][i]     
+                
+        }
+    }
+    return counter
+    console.log(counter)
+}
+
+// given an array of SVGStringList, return another array containing all of its longest strings
+function solution(inputArray) {
+   
+
+    let maxValueString = Math.max(...inputArray.map(element => element.length));
+    const longOnes = inputArray.filter(element => element.length === maxValueString)
+    return longOnes
+    
+    console.log(longest)
+}
+
+// Given two StringList, find the number of common characters between them
+
+function solution(s1, s2) {
+    let counter =0;
+    var a = s1.split("")
+ while ( a.length){
+        var b=a.pop()
+     if (s2.includes(b)){
+         counter++
+         s2=s2.replace(b,"")
+     }
+ }
+    return counter;
+     console.log(counter)
+}
+ 
+
+// ticket numbers usually consist of an even number of digits,if the first half of the digits is equal to the second half of the  digits
+function solution(n) {
+    var arr = String(n).split("").map(str =>Number(str))
+    
+   if (arr.length % 2 === 0){
+      var r = 0;
+      var l =0;
+     let b = arr.length/2;
+      while(arr.length>b) r+= +arr.pop()
+       while(arr.length) l+= +arr.pop()
+       return l===r      
+   }
+ }
+
+//  arrange people by their heights in a non-descending order without moving the trees
+function solution(a) {
+
+    let filtered = a.filter(val => val !== -1)
+    let sorted = filtered.sort((a, b) => a-b)
+    return a.map(val => val === -1? -1: sorted.shift())
+}
+  
+// Write a function that reverses characters in (possible nested ) in the input string
+
+function solution(inputString) {
+    const reversed = inputString.includes(`(`) ? solution(inputString.replace(/\(([^()]*)\)/, (_, $1) => [...$1].reverse().join(``))) : inputString;
+    return reversed
+  }
+
+// |Given an array that contains only numbers in the range from 1 to a.length, find the first duplicate numberK
+
+function solution(a) {
+    r = new Set()
+    for (e of a)
+        if (r.has(e))
+            return e
+        else
+            r.add(e)
+    return -1
+}   
